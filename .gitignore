@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+/capturas/
+/.idea/deploymentTargetDropDown.xml

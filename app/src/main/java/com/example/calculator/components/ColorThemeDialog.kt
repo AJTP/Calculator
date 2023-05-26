@@ -41,7 +41,7 @@ fun ColorThemeDialog(show: Boolean, onDismiss: () -> Unit, onThemeSelected: (Col
                     .padding(16.dp)
             ) {
                 Text(
-                    text = "Esquema de colores",
+                    text = "Color Scheme",
                     fontSize = 18.sp,
                     modifier = Modifier.align(Alignment.CenterHorizontally),
                     fontWeight = FontWeight.Bold
@@ -54,7 +54,7 @@ fun ColorThemeDialog(show: Boolean, onDismiss: () -> Unit, onThemeSelected: (Col
                 Button(onClick = {
                     onThemeSelected(selectedOption)
                 }, modifier = Modifier.fillMaxWidth()) {
-                    Text(text = "Aceptar")
+                    Text(text = "Save")
                 }
             }
         }
@@ -64,7 +64,7 @@ fun ColorThemeDialog(show: Boolean, onDismiss: () -> Unit, onThemeSelected: (Col
 @Composable
 fun RadioButtonGroup(selectedOption: ColorTheme, onOptionSelected: (ColorTheme) -> Unit) {
     Column(Modifier.padding(16.dp)) {
-        Text("Seleccione una opción:")
+        Text("Choose an option:")
         Spacer(modifier = Modifier.height(8.dp))
         RadioGroup(selectedOption) { newOption ->
             onOptionSelected(newOption)
