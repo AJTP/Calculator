@@ -6,9 +6,9 @@ val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
 
-val Orange80 = Color(0xFFFDB177)
-val Skin80 = Color(0xFFC7A88D)
-val Yellow80 = Color(0xFFBD825B)
+val Orange80 = Color(0xFFFC955D)
+val Skin80 = Color(0xFFB18D6E)
+val Yellow80 = Color(0xFFF88C78)
 
 val Pistaccio80 = Color(0xFF3F9104)
 val Lime80 = Color(0xFFB4E629)

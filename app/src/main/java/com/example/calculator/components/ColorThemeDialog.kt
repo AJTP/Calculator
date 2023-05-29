@@ -11,10 +11,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -34,27 +40,35 @@ fun ColorThemeDialog(show: Boolean, onDismiss: () -> Unit, onThemeSelected: (Col
     var selectedOption by remember { mutableStateOf(ColorTheme.IPHONE) }
     if (show) {
         Dialog(onDismissRequest = { onDismiss() }) {
-            Column(
-                Modifier
-                    .fillMaxWidth()
-                    .background(Color.White)
-                    .padding(16.dp)
+            Surface(
+                modifier = Modifier
+                    .wrapContentWidth()
+                    .wrapContentHeight(),
+                shape = MaterialTheme.shapes.large,
+                tonalElevation = AlertDialogDefaults.TonalElevation
             ) {
-                Text(
-                    text = "Color Scheme",
-                    fontSize = 18.sp,
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.size(16.dp))
-                RadioButtonGroup(selectedOption = selectedOption) { newColorTheme ->
-                    selectedOption = newColorTheme
-                }
-                Spacer(modifier = Modifier.size(16.dp))
-                Button(onClick = {
-                    onThemeSelected(selectedOption)
-                }, modifier = Modifier.fillMaxWidth()) {
-                    Text(text = "Save")
+                Column(
+                    Modifier
+                        .fillMaxWidth()
+                        .background(Color.White)
+                        .padding(16.dp)
+                ) {
+                    Text(
+                        text = "Color Scheme",
+                        fontSize = 18.sp,
+                        modifier = Modifier.align(Alignment.CenterHorizontally),
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.size(16.dp))
+                    RadioButtonGroup(selectedOption = selectedOption) { newColorTheme ->
+                        selectedOption = newColorTheme
+                    }
+                    Spacer(modifier = Modifier.size(16.dp))
+                    Button(onClick = {
+                        onThemeSelected(selectedOption)
+                    }, modifier = Modifier.fillMaxWidth()) {
+                        Text(text = "Save")
+                    }
                 }
             }
         }
